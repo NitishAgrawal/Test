@@ -1,0 +1,6 @@
+#!/bin/bash
+
+watchman watch-del-all
+bin/yarn cache clean
+rm -rf node_modules
+bin/yarn install

@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+VENDOR_PATH = File.expand_path('..', __dir__)
+Dir.chdir(VENDOR_PATH) do
+  begin
+    exec "PATH=$(bin/yarn bin):$PATH react-native #{ARGV.join(" ")}"
+  rescue Errno::ENOENT
+    $stderr.puts "react-native executable was not detected in the system."
+    $stderr.puts "Execute `bin/yarn` to install."
+    exit 1
+  end
+end
