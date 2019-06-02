@@ -2,7 +2,7 @@ import { storesTypes } from 'actions/types';
 import _ from 'lodash';
 
 const initialState = {
-  allStores: null, 
+  allStores: [], 
 };
 
 export const allStoresReducer = (state = initialState, action) => {

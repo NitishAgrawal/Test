@@ -12,8 +12,14 @@ export const fetchAllStores = () => ({
   type: storesTypes.FETCH_ALL_STORES,
 });
 
+export const searchStore = (keyword) => ({
+  type: storesTypes.FETCH_SEARCHED_STORE,
+  keyword,
+});
+
 export const StoreActionCreators = {
   showLoader,
   hideLoader,
   fetchAllStores,
+  searchStore,
 };

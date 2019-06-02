@@ -27,8 +27,6 @@ export const getAllStores = () => {
   return api.get('/test/get-all-stores');
 };
 
-
-// export const getData = (expectedStatusOrStatuses, params = {}) => {
-//   return utils.checkStatusHandleError(api.get('api-surfix', { params: utils.toSanitizedSnakeCaseKey(params) }), expectedStatusOrStatuses);
-// };
-
+export const searchStore = (params) => {
+  return api.post('/test/search-store', utils.toSanitizedSnakeCaseKey(params));
+};

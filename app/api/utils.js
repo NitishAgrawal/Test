@@ -8,7 +8,6 @@ export const createAxiosInstance = (baseURL) => {
     baseURL,
     headers: {
       Accept: 'application/json',
-      'User-Agent': `ENGAGE/${version}`,
     },
     // Only consider error for HTTP 500 and above
     validateStatus: status => status >= 200 && status < 500,

@@ -15,12 +15,14 @@ import {
   FlatList,
   TouchableOpacity,
   Text,
+  Dimensions,
 } from 'react-native';
+import Search from 'components/Search';
 
+const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFF',
   },
@@ -28,7 +30,8 @@ const styles = StyleSheet.create({
     padding: 8,
     borderWidth: 1,
     borderColor: 'gray',
-    width: '100%',
+    width: width - 32,
+    borderRadius: 5,
   },
   bodyTitle: {
     fontSize: 18,
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   bodyItems: {
-    marginTop: 5,
+    marginTop: 8,
     fontSize: 16,
     color: '#000',
     fontWeight: '500',
@@ -66,7 +69,7 @@ class AllStores extends Component {
       >
         <View style={styles.bodyContainer}>
           <Text style={styles.bodyTitle}>
-            {item.tradingName || item.storeId}
+            {item.tradingName || item.storeId || item._id}
           </Text>
           <Text style={styles.bodyItems}>
             {item.status}
@@ -79,12 +82,28 @@ class AllStores extends Component {
   render() {
     return (
       <View style={ styles.container }>
+        <Search
+          onSearchChange={(searchText) => {
+            if (searchText === null){
+              this.props.actions.fetchAllStores();
+              return;
+            }
+            this.props.actions.searchStore(searchText)
+          }}
+        />
+        {(this.props.allStores && this.props.allStores.length > 0) ?
         <FlatList
           data={this.props.allStores}
           extraData={this.props}
           renderItem={item => this.renderItem(item.item)}
           keyExtractor={item => String(_.get(item, 'storeId'))}
         />
+          : <Text style={[styles.bodyTitle, {
+              marginTop: 100,
+              justifyContent: 'center',
+              alignSelf: 'center',
+            }]}>List have no item.</Text>
+        }
         <Loader isAnimating={this.props.isLoading} />
       </View>
     );
