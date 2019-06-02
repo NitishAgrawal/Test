@@ -1,8 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { store } from '../store';
-import { LoaderActionCreators } from './loaderActions';
-// import { FirstAction } from './First';
+import { StoreActionCreators } from './storeActions';
 
 export const ActionCreators = bindActionCreators({
-  ...LoaderActionCreators,
+  ...StoreActionCreators,
 }, store.dispatch);
+

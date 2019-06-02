@@ -19,10 +19,16 @@
 
 import * as utils from './utils';
 
-const api = utils.createAxiosInstance('APP_BASE_URL');
-api.interceptors.request.use(utils.globalUserTokenInterceptor);
+const api = utils.createAxiosInstance('http://ubux.biz'); // APP_BASE_URL
+// TODO if we need token
+// api.interceptors.request.use(utils.globalUserTokenInterceptor);
 
-export const getData = (expectedStatusOrStatuses, params = {}) => {
-  return utils.checkStatusHandleError(api.get('url-suffix', { params: utils.toSanitizedSnakeCaseKey(params) }), expectedStatusOrStatuses);
+export const getAllStores = () => {
+  return api.get('/test/get-all-stores');
 };
+
+
+// export const getData = (expectedStatusOrStatuses, params = {}) => {
+//   return utils.checkStatusHandleError(api.get('api-surfix', { params: utils.toSanitizedSnakeCaseKey(params) }), expectedStatusOrStatuses);
+// };
 

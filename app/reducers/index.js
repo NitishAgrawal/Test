@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-
-// import { firstReducer as first } from 'reducers/First';
+import { allStoresReducer as allStores } from 'reducers/AllStores';
 import { loaderReducers } from 'reducers/loaderReducers';
 
 export const rootReducer = combineReducers({
-  // first,
+  allStores,
   loaderReducers,
 });

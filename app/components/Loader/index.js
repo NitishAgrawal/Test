@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 const LoaderSize = 'large';
 
 const Loader = ({ color, isAnimating }) => (
-  <View style={ styles.container }>
+  <View style={(isAnimating ? styles.container : { flex: 0 })}>
     <ActivityIndicator
       animating={ isAnimating }
       style={ styles.activityContainer }

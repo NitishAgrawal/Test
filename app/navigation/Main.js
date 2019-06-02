@@ -3,13 +3,13 @@ import {
   createAppContainer,
 } from 'react-navigation';
 
-import { FirstScreen } from 'screens/FirstScreen';
+import { AllStoresScreen } from 'screens/AllStoresScreen';
 import { SecondScreen } from 'screens/SecondScreen';
 
 const RootStack = createStackNavigator({
-  FirstScreen: {
-    screen: FirstScreen,
-    key: 'FirstScreen',
+  AllStoresScreen: {
+    screen: AllStoresScreen,
+    key: 'AllStoresScreen',
     navigationOptions: {
       gesturesEnabled: false,
     },

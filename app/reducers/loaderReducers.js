@@ -1,9 +1,5 @@
 /* eslint no-underscore-dangle: 0 */
-
-import {
-  SHOW_LOADER,
-  HIDE_LOADER,
-} from 'actions/loaderActions';
+import { storesTypes } from 'actions/types';
 
 const initialState = {
   isLoading: false,
@@ -12,16 +8,16 @@ const initialState = {
 export const loaderReducers = (state = initialState, { type }) => {
   if (type === 'undefined') {
     return state;
-  }
+  } 
 
   switch (type) {
-  case SHOW_LOADER:
+  case storesTypes.SHOW_LOADER:
     return {
       ...state,
       isLoading: true,
     };
 
-  case HIDE_LOADER:
+  case storesTypes.HIDE_LOADER:
     return {
       ...state,
       isLoading: false,
