@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     width: width - 32,
     borderRadius: 5,
+    backgroundColor: '#00000022',
   },
   bodyTitle: {
     fontSize: 18,
