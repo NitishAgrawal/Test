@@ -9,7 +9,7 @@
     "lint-fixup": "./node_modules/.bin/eslint src --ext .js,.jsx --fix"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "16.6.3",
